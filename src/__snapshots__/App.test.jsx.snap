@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+Array [
+  <p
+    aria-label="balance"
+  >
+    £
+    100
+  </p>,
+  <input
+    aria-label="input"
+    className="border"
+    onChange={[Function]}
+  />,
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+     
+    Submit
+     
+  </button>,
+  <p />,
+]
+`;

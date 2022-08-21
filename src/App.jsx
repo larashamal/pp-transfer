@@ -1,24 +1,33 @@
+import { useState } from "react";
 import "./App.css";
-import logo from "./logo.svg";
 
 function App() {
+  const [balance, setBalance] = useState(100);
+  const [amount, setAmount] = useState("");
+  const [message, setMessage] = useState("");
+
+  function handleClick() {
+    if (amount <= balance && amount > 0) {
+      setBalance(balance - amount);
+      setMessage(`${amount} transferred.`);
+    } else {
+      setMessage(`insufficient funds`);
+    }
+  }
+
+  const handleChange = (event) => setAmount(event.target.value);
+
   return (
-    <div className="text-center">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://beta.reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React (Beta Docs)
-        </a>
-      </header>
-    </div>
+    <>
+      <p aria-label="balance">£{balance}</p>
+      <input className="border" aria-label="input" onChange={handleChange} />
+      <button type="button" onClick={handleClick}>
+        {" "}
+        Submit{" "}
+      </button>
+
+      <p>{message}</p>
+    </>
   );
 }
 
