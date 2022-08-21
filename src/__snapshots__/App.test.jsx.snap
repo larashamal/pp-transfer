@@ -1,26 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing 1`] = `
-Array [
-  <p
+<div
+  className="flex flex-col justify-center"
+>
+  <h1
     aria-label="balance"
+    className=" mx-6 my-6 text-center text-3xl font-semibold"
   >
     £
     100
-  </p>,
+  </h1>
   <input
     aria-label="input"
-    className="border"
+    className="my-6 mx-auto border border-purple-400"
     onChange={[Function]}
-  />,
+  />
   <button
+    className="mx-auto max-w-fit rounded-full bg-purple-400 py-1 px-4 text-white hover:bg-purple-600"
     onClick={[Function]}
     type="button"
   >
      
     Submit
      
-  </button>,
-  <p />,
-]
+  </button>
+  <p
+    className="mx-auto mt-6 max-w-fit rounded-xl border border-purple-300 bg-purple-100 p-2 text-center"
+  />
+</div>
 `;
