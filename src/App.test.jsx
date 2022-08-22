@@ -1,24 +1,32 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import renderer from "react-test-renderer";
 import App from "./App";
 
-it("renders without crashing", () => {
-  const rendered = renderer.create(<App />).toJSON();
-  expect(rendered).toMatchSnapshot();
+const balance = 100;
+
+it("renders the updated amount when the form is submitted", () => {
+  const transferAmt = 50;
+  const expectedSetMsg = `You transferred ${transferAmt}`;
+  const expectedBalanceMsg = `Your balance is now: ${balance - transferAmt}`;
+
+  render(<App />);
+  const input = screen.getByLabelText(`How much would you like to transfer?`);
+  userEvent.type(input, transferAmt.toString());
+  userEvent.click(screen.getByRole("button"));
+
+  expect(screen.getByText(expectedSetMsg)).toBeInTheDocument();
+  expect(screen.getByText(expectedBalanceMsg)).toBeInTheDocument();
 });
 
-it("updates balance when we enter a valid input", () => {
-  render(<App />);
+it("prevents negative balances from occuring", () => {
   // Arrange
-  const balance = screen.getByLabelText(/balance/i);
-  const input = screen.getByLabelText(/input/i);
-  const button = screen.getByRole("button");
-
+  const transferAmt = 1000;
+  const expectedMsg = `You can't transfer more than ${balance}`;
   // Act
-  userEvent.type(input, "30");
-  userEvent.click(button);
-
+  render(<App />);
+  const input = screen.getByLabelText("How much would you like to transfer?");
+  userEvent.type(input, transferAmt.toString());
+  userEvent.click(screen.getByRole("button"));
   // Assert
-  expect(balance.textContent).toBe("£70");
+  expect(screen.getByText(expectedMsg)).toBeInTheDocument();
 });
