@@ -12,7 +12,7 @@ export default function Form({ handleSubmit }) {
         </label>
         <input
           type="number"
-          placeholder="enter amount here"
+          placeholder="Enter amount"
           id="amt"
           className="my-6 mx-auto border border-purple-400"
         />
