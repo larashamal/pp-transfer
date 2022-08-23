@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Form from "./components/Form/Form";
 
-const balance = 100;
+let balance = 100;
 
 function App() {
   const [transferStatus, setTransferStatus] = useState({ amt: 0, msg: "" });
@@ -18,6 +18,7 @@ function App() {
         msg: `You can't transfer more than ${balance}`,
       });
     } else {
+      balance -= amt;
       setTransferStatus({
         amt,
         msg: "You transferred ",
@@ -33,7 +34,7 @@ function App() {
         <p>
           {transferStatus.msg} {transferStatus.amt > 0 && transferStatus.amt}
         </p>
-        <p>Your balance is now: {balance - transferStatus.amt}</p>
+        <p>Your balance is now: {balance}</p>
       </div>
     </>
   );
