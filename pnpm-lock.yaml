@@ -13,6 +13,7 @@ specifiers:
   eslint-plugin-react: ^7.30.1
   eslint-plugin-react-hooks: ^4.6.0
   json-server: ^0.17.0
+  ky: ^0.31.1
   postcss: ^8.4.16
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.13
@@ -26,6 +27,7 @@ dependencies:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 13.5.0
+  ky: 0.31.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-scripts: 5.0.1_react@18.2.0
@@ -6688,6 +6690,11 @@ packages:
   /klona/2.0.5:
     resolution: {integrity: sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==}
     engines: {node: '>= 8'}
+    dev: false
+
+  /ky/0.31.1:
+    resolution: {integrity: sha512-wha6TXwen/+4aeHGn8oyHWTQdukT/JZew4mmu2KiCFKn1NHCXiWpeBhGDVFiIX9FN7wsfSkV0C8yZ6YRKE/w4Q==}
+    engines: {node: '>=14.16'}
     dev: false
 
   /language-subtag-registry/0.3.22:

@@ -1,31 +1,16 @@
 import PropTypes from "prop-types";
 
-export default function Form({ handleSubmit }) {
+export default function Form({ handleSubmit, children }) {
   return (
     <form
       className="mx-auto flex w-48 flex-col items-center"
-      onSubmit={handleSubmit}
+      handleSubmit={handleSubmit}
     >
-      <div>
-        <label htmlFor="amt" className="text-center text-3xl">
-          How much would you like to transfer?
-        </label>
-        <input
-          type="number"
-          placeholder="Enter amount"
-          id="amt"
-          className="my-6 mx-auto border border-purple-400"
-        />
-      </div>
-      <button
-        type="submit"
-        className="mx-auto max-w-fit rounded-full bg-purple-400 py-1 px-4 text-white hover:bg-purple-600"
-      >
-        Submit
-      </button>
+      {children}
     </form>
   );
 }
 Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
 };
